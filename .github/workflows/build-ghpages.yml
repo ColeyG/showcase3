@@ -19,9 +19,8 @@ jobs:
           npm install
           npm run build
       - run: echo > build/.nojekyll
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          folder: build
-          clean-exclude: |
-            .nojekyll
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
