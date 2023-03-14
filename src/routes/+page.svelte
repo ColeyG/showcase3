@@ -1,3 +1,7 @@
+<svelte:head>
+  <title>Cole Geerts</title>
+</svelte:head>
+
 <p class="text top-text">Cole Geerts</p>
 <p class="text">Great things are Coming</p>
 
