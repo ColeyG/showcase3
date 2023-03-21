@@ -72,7 +72,7 @@
     pointer-events: all;
     position: absolute;
     right: 30px;
-    bottom: 50px;
+    bottom: 100px;
     height: 44px;
     width: 80px;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
