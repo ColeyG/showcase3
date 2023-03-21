@@ -81,7 +81,6 @@
     justify-content: center;
     align-items: center;
     border-radius: 4px;
-    transition: 0.2s;
   }
 
   .chat-container .close {
