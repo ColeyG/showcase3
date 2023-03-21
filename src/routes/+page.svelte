@@ -1,3 +1,8 @@
+<script>
+  import Contact from "./Contact.svelte";
+</script>
+
+<Contact />
 <p class="text top-text">Cole Geerts</p>
 <p class="text">Great things are Coming</p>
 
