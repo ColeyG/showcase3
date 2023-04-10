@@ -4,6 +4,9 @@
   let email = "";
   let message = "";
 
+  let emailErrors = false;
+  let messageErrors = false;
+
   const openChat = () => {
     open = true;
   };
@@ -13,6 +16,16 @@
   };
 
   const sendMessage = () => {
+    if (email === "") {
+      emailErrors = true;
+      return;
+    }
+
+    if (message === "") {
+      messageErrors = true;
+      return;
+    }
+
     fetch("https://coley.world/api/custom-discord-message", {
       headers: {
         Accept: "application/json",
@@ -25,6 +38,22 @@
     });
     sentMessage = true;
   };
+
+  const sendMessageOnEnter = (e) => {
+    if (e.key === "Enter") {
+      sendMessage();
+    }
+  };
+
+  const reOpenChat = (e) => {
+    e.preventDefault();
+
+    email = "";
+    message = "";
+    emailErrors = false;
+    messageErrors = false;
+    sentMessage = false;
+  };
 </script>
 
 <div class="contact-overlay">
@@ -35,17 +64,26 @@
       >
       {#if open}
         <button class="close" on:click={closeChat} on:keypress={closeChat}
-          >X</button
+          ><img src="./cancel.svg" alt="Cancel" /></button
         >
         <label for="email">email</label>
-        <input bind:value={email} type="text" id="email" name="email" />
+        <input
+          bind:value={email}
+          on:keyup={sendMessageOnEnter}
+          type="text"
+          id="email"
+          name="email"
+          class={emailErrors ? "email-errors" : ""}
+        />
         <label for="message">message</label>
         <textarea
           bind:value={message}
+          on:keyup={sendMessageOnEnter}
           name="message"
           id="message"
           cols="30"
           rows="10"
+          class={messageErrors ? "message-errors" : ""}
         />
         <button class="send" on:click={sendMessage} on:keypress={sendMessage}
           >send</button
@@ -54,7 +92,12 @@
     </div>
   {:else}
     <div class="chat-container">
-      <p class="thanks">thanks!</p>
+      <p class="thanks">
+        thanks! <br />
+        <a href="/" on:click={reOpenChat} on:keypress={reOpenChat}
+          >message again</a
+        >
+      </p>
     </div>
   {/if}
 </div>
@@ -74,7 +117,7 @@
     right: 30px;
     bottom: 100px;
     height: 44px;
-    width: 80px;
+    width: 110px;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
     display: flex;
     flex-direction: column;
@@ -87,6 +130,10 @@
     position: absolute;
     top: 10px;
     right: 10px;
+  }
+
+  .chat-container .close img {
+    width: 25px;
   }
 
   .chat-container .message-me {
@@ -103,6 +150,7 @@
     margin: 4px 0;
     padding: 4px;
     font-size: 0.9rem;
+    font-family: "Roboto", sans-serif;
   }
 
   .chat-container textarea {
@@ -122,17 +170,32 @@
     font-size: 0.9rem;
     color: white;
     border-radius: 3px;
+    margin-top: 10px;
+    padding: 4px 9px;
   }
 
   .chat-container .thanks {
     font-size: 0.9rem;
     font-style: italic;
+    opacity: 0.7;
+    text-align: center;
+    padding: 8px 0;
+  }
+
+  .chat-container .thanks a {
+    color: black;
+    opacity: 0.5;
   }
 
   .chat-container-open {
-    width: 300px;
+    width: 220px;
     height: auto;
     justify-content: space-between;
     padding: 8px;
+  }
+
+  .email-errors,
+  .message-errors {
+    outline: 3px solid red;
   }
 </style>
