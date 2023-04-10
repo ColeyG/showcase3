@@ -65,4 +65,7 @@ button {
   background-color: transparent;
   cursor: pointer;
 }
+* {
+	box-sizing: border-box;
+}
 #blotter.svelte-6ty979{position:absolute}
