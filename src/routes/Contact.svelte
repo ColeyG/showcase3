@@ -18,11 +18,13 @@
   const sendMessage = () => {
     if (email === "") {
       emailErrors = true;
-      return;
     }
 
     if (message === "") {
       messageErrors = true;
+    }
+
+    if (email === "" || message === "") {
       return;
     }
 
