@@ -68,4 +68,4 @@ button {
 * {
 	box-sizing: border-box;
 }
-#blotter.svelte-6ty979{position:absolute}
+#canvas.svelte-1gfi0dk{height:100vh;position:absolute;width:100%;display:block;object-fit:contain;z-index:10}
