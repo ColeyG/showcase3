@@ -68,4 +68,11 @@ button {
 * {
 	box-sizing: border-box;
 }
-#canvas.svelte-1gfi0dk{height:100vh;position:absolute;width:100%;display:block;object-fit:contain;z-index:10}
+.canvas-mask.svelte-k7o8t2{height:100vh;position:absolute;width:100%;display:block;z-index:20;background:linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.75) 30%,
+      rgba(255, 255, 255, 0.9) 50%,
+      rgba(255, 255, 255, 0.75) 70%,
+      rgba(255, 255, 255, 0) 100%
+    )}#canvas.svelte-k7o8t2{height:100vh;position:absolute;width:100%;display:block;object-fit:contain;z-index:10}
