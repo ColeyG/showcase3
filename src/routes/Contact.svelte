@@ -116,6 +116,7 @@
   .chat-container {
     pointer-events: all;
     position: absolute;
+    z-index: 110;
     right: 30px;
     bottom: 100px;
     height: 44px;
@@ -126,6 +127,8 @@
     justify-content: center;
     align-items: center;
     border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(4px);
   }
 
   .chat-container .close {
@@ -146,13 +149,14 @@
 
   .chat-container input,
   .chat-container textarea {
-    background-color: #eee;
+    background-color: rgba(51, 51, 51, 0.25);
     width: 100%;
     border-radius: 3px;
     margin: 4px 0;
     padding: 4px;
     font-size: 0.9rem;
     font-family: "Roboto", sans-serif;
+    backdrop-filter: blur(8px);
   }
 
   .chat-container textarea {
@@ -168,7 +172,7 @@
   }
 
   .chat-container .send {
-    background-color: #175676;
+    background-color: rgba(23, 86, 118, 0.75);
     font-size: 0.9rem;
     color: white;
     border-radius: 3px;

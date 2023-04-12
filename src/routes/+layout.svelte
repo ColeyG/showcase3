@@ -1,7 +1,7 @@
 <script>
   import "../app.css";
-  import BlotterEffects from "./BlotterEffects.svelte";
+  import CanvasEffects from "./CanvasEffects.svelte";
 </script>
 
-<BlotterEffects />
+<CanvasEffects />
 <slot />
