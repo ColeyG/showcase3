@@ -22,10 +22,6 @@
     canvas.width = canvas.offsetWidth * devicePixelRatio;
     canvas.height = canvas.offsetHeight * devicePixelRatio;
 
-    c.globalCompositeOperation = "overlay";
-    c.fillStyle = "#ffffff";
-    c.fillRect(0, 0, canvas.width, canvas.height);
-
     c.globalCompositeOperation = "multiply";
 
     letterArray.forEach((letter, index) => {
@@ -33,30 +29,38 @@
 
       c.font = `${size}px Times serif`;
 
-      c.translate(letter.left + size / 2, letter.top + size / 2);
-      c.rotate(rad);
+      c.translate(letter.left - size / 4, letter.top - size / 4);
 
       //magenta
       c.fillStyle = "rgba(252,3,215,0.8)";
+      c.rotate(rad);
       c.fillText(letter.letter, 0, 0);
+      c.rotate(rad * -1);
       //yellow
       c.fillStyle = "rgba(227,252,3,0.8)";
-      c.fillText(letter.letter, 0 - offset, 0 - offset);
+      c.translate(offset * -1, offset * -1);
+      c.rotate(rad);
+      c.fillText(letter.letter, 0, 0);
+      c.rotate(rad * -1);
+      c.translate(offset, offset);
       //cyan
       c.fillStyle = "rgba(3,240,252,0.8)";
+      c.translate(offset, offset);
+      c.rotate(rad);
       c.fillText(letter.letter, 0 + offset, 0 + offset);
-
       c.rotate(rad * -1);
-      c.translate((letter.left + size / 2) * -1, (letter.top + size / 2) * -1);
+      c.translate(offset * -1, offset * -1);
+      c.translate((letter.left - size / 4) * -1, (letter.top - size / 4) * -1);
 
       letterArray[index].left = letterArray[index].left + letter.velL;
       letterArray[index].top = letterArray[index].top + letter.velT;
+      letterArray[index].rotation = letterArray[index].rotation + letter.velR;
 
-      if (letter.left > canvas.width) {
+      if (letter.left > canvas.width + size) {
         letterArray[index].velL = letterArray[index].velL * -1;
       }
 
-      if (letter.top > canvas.height) {
+      if (letter.top > canvas.height + size) {
         letterArray[index].velT = letterArray[index].velT * -1;
       }
 
@@ -69,30 +73,11 @@
       }
     });
 
-    if (Math.random() < 0.05) {
+    if (Math.random() < 0.005) {
       let target = Math.floor(Math.random() * letterArray.length);
       letterArray[target].letter = randomLetter();
       letterArray[target].rotation = Math.random() * 360;
     }
-
-    c.globalCompositeOperation = "normal";
-    //"Desire" Zones
-    c.fillStyle = "green";
-    //left
-    c.rect(0, 0, 70, canvas.height);
-    // c.fill();
-
-    //top
-    c.rect(0, 0, canvas.width, 70);
-    // c.fill();
-
-    //right
-    c.rect(canvas.width - 70, 0, 70, canvas.height);
-    // c.fill();
-
-    //bottom
-    c.rect(0, canvas.height - 70, canvas.width, 70);
-    // c.fill();
   };
 
   const canvasInit = () => {
@@ -110,8 +95,10 @@
         rotation: Math.random() * 360,
         // rotation: 90,
         // size: Math.floor(Math.random() * 10 + 15),
-        velL: Math.random() * 0.5 - 0.25,
-        velT: Math.random() * 0.5 - 0.25,
+        velL: Math.random() * 0.25 - 0.125,
+        velT: Math.random() * 0.25 - 0.125,
+        velR: Math.random() * 0.25 - 0.125,
+        // velR: 10,
       });
     }
 
@@ -126,9 +113,27 @@
   onMount(canvasInit);
 </script>
 
+<div class="canvas-mask" />
 <canvas id="canvas" on:resize={canvasResized} />
 
 <style>
+  .canvas-mask {
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+    display: block;
+    /* background-color: red; */
+    z-index: 20;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.75) 30%,
+      rgba(255, 255, 255, 0.9) 50%,
+      rgba(255, 255, 255, 0.75) 70%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+
   #canvas {
     height: 100vh;
     position: absolute;
