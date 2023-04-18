@@ -16,7 +16,7 @@
       target="_blank"
       rel="noopener noreferrer">github</a
     >
-    <a href="misc">misc</a>
+    <!-- <a href="misc">misc</a> -->
   </nav>
 </div>
 

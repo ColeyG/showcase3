@@ -172,7 +172,8 @@
   }
 
   .chat-container .send {
-    background-color: rgba(23, 86, 118, 0.75);
+    background-color: #0093e9;
+    background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
     font-size: 0.9rem;
     color: white;
     border-radius: 3px;
