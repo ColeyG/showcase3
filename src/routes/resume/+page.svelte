@@ -231,6 +231,13 @@
 
     .resume .columns .left .chunk {
       margin-right: 12px;
+      width: 160px;
+    }
+  }
+
+  @media screen and (max-width: 380px) {
+    .resume .columns .left .chunk {
+      width: 100%;
     }
   }
 
