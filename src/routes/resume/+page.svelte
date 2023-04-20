@@ -26,51 +26,63 @@
   </p>
   <div class="columns">
     <div class="left">
-      <p class="title">Technical Skills</p>
-      <p class="semi-title">Languages</p>
-      <p class="list-text">
-        JavaScript, PHP<br />
-        SQL, Bash, C<br />
-        Python, Rust, Java
-      </p>
-      <p class="semi-title">Web Development</p>
-      <p class="list-text">
-        React, Vue, Svelte<br />
-        jQuery<br />
-        HTML, CSS, Sass<br />
-        SEO, AODA<br />
-        Accessibility
-      </p>
-      <p class="semi-title">Frameworks</p>
-      <p class="list-text">
-        Wordpress<br />
-        Drupal, Laravel<br />
-        NextJS, Gatsby<br />
-        Magento
-      </p>
-      <p class="semi-title">Technologies</p>
-      <p class="list-text">
-        Linux<br />
-        Google Cloud Platform<br />
-        Git, CI/CD<br />
-        Arduino, Raspberry Pi<br />
-        Adobe Creative Suite<br />
-        AWS<br />
-        Networking
-      </p>
-      <p class="title">Business Skills</p>
-      <p class="list-text">
-        Analytics & Business Data<br />
-        Client Satisfaction<br />
-        Team Collaboration<br />
-        Sprint Planning Methods<br />
-        Scope Setting<br />
-        Responsive Design
-      </p>
-      <p class="title">Certificates</p>
-      <p class="list-text">
-        Google Analytics & Advanced Analytics Certificates
-      </p>
+      <p class="title" style="flex-basis: 100%;">Technical Skills</p>
+      <div class="chunk">
+        <p class="semi-title">Languages</p>
+        <p class="list-text">
+          JavaScript, PHP<br />
+          SQL, Bash, C<br />
+          Python, Rust, Java
+        </p>
+      </div>
+      <div class="chunk">
+        <p class="semi-title">Web Development</p>
+        <p class="list-text">
+          React, Vue, Svelte<br />
+          jQuery<br />
+          HTML, CSS, Sass<br />
+          SEO, AODA<br />
+          Accessibility
+        </p>
+      </div>
+      <div class="chunk">
+        <p class="semi-title">Frameworks</p>
+        <p class="list-text">
+          Wordpress<br />
+          Drupal, Laravel<br />
+          NextJS, Gatsby<br />
+          Magento
+        </p>
+      </div>
+      <div class="chunk">
+        <p class="semi-title">Technologies</p>
+        <p class="list-text">
+          Linux<br />
+          Google Cloud Platform<br />
+          Git, CI/CD<br />
+          Arduino, Raspberry Pi<br />
+          Adobe Creative Suite<br />
+          AWS<br />
+          Networking
+        </p>
+      </div>
+      <div class="chunk" style="flex-basis: 100%;">
+        <p class="title">Business Skills</p>
+        <p class="list-text">
+          Analytics & Business Data<br />
+          Client Satisfaction<br />
+          Team Collaboration<br />
+          Sprint Planning Methods<br />
+          Scope Setting<br />
+          Responsive Design
+        </p>
+      </div>
+      <div class="chunk" style="flex-basis: 100%;">
+        <p class="title">Certificates</p>
+        <p class="list-text">
+          Google Analytics & Advanced Analytics Certificates
+        </p>
+      </div>
     </div>
     <div class="right">
       <p class="title">Professional Experience</p>
@@ -158,16 +170,24 @@
 
 <style>
   .resume {
-    max-width: 800px;
+    width: 800px;
+    max-width: 100%;
     position: relative;
     z-index: 105;
-    margin: 90px auto;
-    padding: 8px;
-    padding-bottom: 90px;
+    margin: 40px auto;
+    padding: 18px;
+    padding-bottom: 180px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+  }
+
+  @media screen and (min-width: 600px) {
+    .resume {
+      margin: 90px auto;
+      padding-bottom: 90px;
+    }
   }
 
   .primary-text {
@@ -186,16 +206,46 @@
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    flex-direction: row;
+    flex-direction: column-reverse;
+  }
+
+  @media screen and (min-width: 900px) {
+    .resume .columns {
+      flex-direction: row;
+    }
   }
 
   .resume .columns .left {
     margin-right: 8px;
-    width: 160px;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 899px) {
+    .resume .columns .left {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .resume .columns .left .chunk {
+      margin-right: 12px;
+    }
   }
 
   .resume .columns .right {
-    width: 632px;
+    width: 100%;
+  }
+
+  @media screen and (min-width: 900px) {
+    .resume .columns .left {
+      width: 160px;
+    }
+
+    .resume .columns .right {
+      width: 632px;
+    }
   }
 
   .right ul {

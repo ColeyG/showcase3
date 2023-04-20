@@ -115,18 +115,18 @@
 <style>
   .contact-overlay {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     margin-bottom: -100vh;
     pointer-events: none;
     position: sticky;
     top: 0;
     left: 0;
+    z-index: 130;
   }
 
   .chat-container {
     pointer-events: all;
     position: absolute;
-    z-index: 110;
     right: 30px;
     bottom: 100px;
     height: 44px;

@@ -27,6 +27,7 @@
     align-items: center;
     flex-direction: column;
     height: 100%;
+    margin-top: 220px;
   }
 
   .top-text {
