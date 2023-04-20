@@ -122,7 +122,6 @@
     position: absolute;
     width: 100%;
     display: block;
-    /* background-color: red; */
     z-index: 20;
     background: linear-gradient(
       90deg,

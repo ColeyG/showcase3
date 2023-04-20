@@ -1,4 +1,12 @@
 <script>
+  export let externalOpen = false;
+  $: {
+    if (externalOpen === true) {
+      open = true;
+      externalOpen = false;
+    }
+  }
+
   let open = false;
   let sentMessage = false;
   let email = "";
@@ -110,7 +118,9 @@
     height: 100%;
     margin-bottom: -100vh;
     pointer-events: none;
-    position: relative;
+    position: sticky;
+    top: 0;
+    left: 0;
   }
 
   .chat-container {
@@ -145,6 +155,8 @@
     text-align: center;
     opacity: 0.7;
     font-size: 0.9rem;
+    width: 100%;
+    height: 100%;
   }
 
   .chat-container input,

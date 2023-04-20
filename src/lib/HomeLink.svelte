@@ -2,7 +2,7 @@
 
 <style>
   .home-link {
-    position: absolute;
+    position: sticky;
     left: 20px;
     top: 30px;
     z-index: 100;
