@@ -140,7 +140,5 @@
     display: block;
     object-fit: contain;
     z-index: 10;
-    background-color: green;
-    margin-top: 30px;
   }
 </style>
