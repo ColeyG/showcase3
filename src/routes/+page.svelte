@@ -16,7 +16,7 @@
       target="_blank"
       rel="noopener noreferrer">github</a
     >
-    <a href="misc">misc</a>
+    <!-- <a href="misc">misc</a> -->
   </nav>
 </div>
 
@@ -27,6 +27,7 @@
     align-items: center;
     flex-direction: column;
     height: 100%;
+    margin-top: 220px;
   }
 
   .top-text {

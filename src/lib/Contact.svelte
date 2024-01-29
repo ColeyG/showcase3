@@ -1,4 +1,12 @@
 <script>
+  export let externalOpen = false;
+  $: {
+    if (externalOpen === true) {
+      open = true;
+      externalOpen = false;
+    }
+  }
+
   let open = false;
   let sentMessage = false;
   let email = "";
@@ -107,16 +115,18 @@
 <style>
   .contact-overlay {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     margin-bottom: -100vh;
     pointer-events: none;
-    position: relative;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 130;
   }
 
   .chat-container {
     pointer-events: all;
     position: absolute;
-    z-index: 110;
     right: 30px;
     bottom: 100px;
     height: 44px;
@@ -145,6 +155,8 @@
     text-align: center;
     opacity: 0.7;
     font-size: 0.9rem;
+    width: 100%;
+    height: 100%;
   }
 
   .chat-container input,
@@ -172,7 +184,8 @@
   }
 
   .chat-container .send {
-    background-color: rgba(23, 86, 118, 0.75);
+    background-color: #0093e9;
+    background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
     font-size: 0.9rem;
     color: white;
     border-radius: 3px;

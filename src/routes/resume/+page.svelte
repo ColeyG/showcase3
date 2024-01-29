@@ -1,9 +1,16 @@
 <script>
   import Contact from "$lib/Contact.svelte";
   import HomeLink from "$lib/HomeLink.svelte";
+
+  let contactOpen = false;
+
+  let openContact = (e) => {
+    e.preventDefault();
+    contactOpen = true;
+  };
 </script>
 
-<Contact />
+<Contact bind:externalOpen={contactOpen} />
 <HomeLink />
 <div class="resume">
   <p>Web R&eacute;sum&eacute;</p>
