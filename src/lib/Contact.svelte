@@ -131,13 +131,16 @@
     bottom: 100px;
     height: 44px;
     width: 110px;
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    box-shadow:
+      rgba(0, 0, 0, 0.12) 0px 1px 3px,
+      rgba(0, 0, 0, 0.24) 0px 1px 2px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 4px;
     background-color: rgba(255, 255, 255, 0.5);
+    -webkit-backdrop-filter: blur(4px);
     backdrop-filter: blur(4px);
   }
 
@@ -168,6 +171,7 @@
     padding: 4px;
     font-size: 0.9rem;
     font-family: "Roboto", sans-serif;
+    -webkit-backdrop-filter: blur(4px);
     backdrop-filter: blur(8px);
   }
 
