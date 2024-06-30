@@ -36,7 +36,7 @@
       return;
     }
 
-    fetch("http://99.242.124.248:8921/custom-discord-message", {
+    fetch("https://99.242.124.248:8921/custom-discord-message", {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
