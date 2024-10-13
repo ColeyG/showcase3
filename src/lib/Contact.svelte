@@ -36,7 +36,7 @@
       return;
     }
 
-    fetch("https://cole.blue:8921/custom-discord-message", {
+    fetch("https://cole.blue/custom-discord-message", {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
