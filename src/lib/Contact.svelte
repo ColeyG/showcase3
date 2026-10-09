@@ -36,15 +36,13 @@
       return;
     }
 
-    fetch("https://cole.blue/custom-discord-message", {
+    fetch("https://cole.blue/email", {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
       method: "POST",
-      body: JSON.stringify({
-        message: `Message from site || ${email} says: ${message}`,
-      }),
+      body: JSON.stringify({ email, message }),
     });
     sentMessage = true;
   };
